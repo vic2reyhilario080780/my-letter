@@ -16,8 +16,6 @@
     <meta property="og:description" content="I-tap para buksan ang sobre at basahin ang mensahe.">
     <meta property="og:image" content="https://images.unsplash.com/photo-1579208030886-b937da0925dc?q=80&w=600&auto=format&fit=crop">
     <meta property="og:image:type" content="image/jpeg">
-    <meta property="og:image:width" content="600">
-    <meta property="og:image:height" content="400">
 
     <style>
         * {
@@ -34,7 +32,6 @@
             font-family: 'Montserrat', sans-serif;
         }
 
-        /* Responsive Wrapper para Laging Nasa Gitna ng Screen */
         .viewport-wrapper {
             width: 100vw;
             height: 100vh;
@@ -263,7 +260,7 @@
             display: none;
         }
 
-        /* Responsive Layout Adjustments for Phones & Small Tablets */
+        /* Responsive Layout Adjustments for Mobile Devices */
         @media (max-width: 768px) {
             .stage.open .card {
                 left: -140px;
@@ -307,7 +304,7 @@
                 <div class="card">
                     <!-- Left Side: Picture -->
                     <div class="card-left">
-                        <img id="card-img" src="" alt="Shared Photo">
+                        <img id="card-img" src="my-photo.jpg" alt="Shared Photo">
                     </div>
                     
                     <!-- Right Side: Message -->
@@ -324,15 +321,9 @@
     </div>
 
     <script>
-        // ========================================================
-        // ⚙️ CONFIGURATION SECTION
-        // ========================================================
         const CONFIG = {
-            // Title & Subtitle sa kanang bahagi ng Card
             title: "Happy Monthsary, My Love!",
             subtitle: "To My Favorite Person ✨",
-            
-            // Ang Mensahe
             message: `Ang bilis ng panahon, pero bawat segundong kasama kita ay walang katumbas na kaligayahan. 
 
 Salamat sa pag-unawa, sa pagpapasensya, at sa walang sawang pagmamahal na ibinibigay mo araw-araw.
@@ -346,16 +337,10 @@ Ikaw ang aking pahinga at aking paboritong destinasyon. Looking forward sa maram
         document.getElementById('card-message').textContent = CONFIG.message;
         document.getElementById('doc-title').textContent = CONFIG.title;
 
-        // Image Binding (Naka-encode na direct sa Javascript para hindi na mag-fail ang upload)
-        // Dito nakakabit ang mismong watercolor picture na in-upload mo!
-        document.getElementById('card-img').src = "https://images.unsplash.com/photo-1579208030886-b937da0925dc?q=80&w=600&auto=format&fit=crop"; 
-
-        // Toggle Animation Function
         function toggleEnvelope() {
             document.getElementById('mainStage').classList.toggle('open');
         }
 
-        // Auto-Scale Component para Laging Gitna sa CP / Tablet
         function autoScaleStage() {
             const stage = document.getElementById('mainStage');
             const windowWidth = window.innerWidth;

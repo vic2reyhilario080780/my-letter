@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="doc-title">Happy Monthsary, My Love! 💖</title>
 
-    <!-- Google Fonts for Premium Typography -->
+    <!-- Google Fonts for Clean & Crisp Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Great+Vibes&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <!-- Open Graph Tags para sa Messenger Preview (Envelope Thumbnail) -->
+    <!-- Open Graph Tags para SURE na ENVELOPE ang Lalabas sa Messenger -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="May Espesyal Na Liham Para Sa'yo 💌">
     <meta property="og:description" content="I-tap para buksan ang sobre at basahin ang mensahe.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1579208030886-b937da0925dc?q=80&w=600&auto=format&fit=crop">
+    <meta property="og:image" content="https://img.freepik.com/free-vector/opened-envelope-with-red-heart-card-vector-illustration_1017-48866.jpg">
     <meta property="og:image:type" content="image/jpeg">
 
     <style>
@@ -27,40 +27,38 @@
         html, body {
             width: 100%;
             height: 100%;
-            overflow: hidden;
-            background: radial-gradient(circle at center, #2c0b1e 0%, #0f030a 100%);
-            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            background: #1a0510;
+            font-family: 'Poppins', sans-serif;
         }
 
         .viewport-wrapper {
             width: 100vw;
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            position: relative;
+            padding: 20px;
             perspective: 1500px;
         }
 
         .stage {
             position: relative;
             width: 100%;
-            max-width: 850px;
-            height: 550px;
+            max-width: 480px;
             display: flex;
             justify-content: center;
             align-items: center;
-            transition: transform 0.3s ease;
         }
 
         /* ---------------- ENVELOPE DESIGN ---------------- */
         .envelope-container {
             position: relative;
-            width: 340px;
-            height: 230px;
-            background: #581225;
-            border-radius: 8px;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.6), 0 0 20px rgba(212, 175, 55, 0.2);
+            width: 320px;
+            height: 220px;
+            background: #6b1129;
+            border-radius: 10px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.7), 0 0 15px rgba(212, 175, 55, 0.3);
             cursor: pointer;
             transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
             z-index: 10;
@@ -69,70 +67,65 @@
         .envelope-container::after {
             content: '';
             position: absolute;
-            top: 10px;
-            left: 10px;
-            right: 10px;
-            bottom: 10px;
-            border: 1px dashed rgba(212, 175, 55, 0.5);
-            border-radius: 4px;
+            top: 8px;
+            left: 8px;
+            right: 8px;
+            bottom: 8px;
+            border: 1px dashed #d4af37;
+            border-radius: 6px;
             pointer-events: none;
         }
 
-        /* Top Flap */
+        /* Flaps */
         .flap-top {
             position: absolute;
             top: 0;
             left: 0;
             width: 0;
             height: 0;
-            border-left: 170px solid transparent;
-            border-right: 170px solid transparent;
-            border-top: 130px solid #6e1830;
+            border-left: 160px solid transparent;
+            border-right: 160px solid transparent;
+            border-top: 125px solid #821733;
             transform-origin: top;
             transition: transform 0.8s ease-in-out, z-index 0.6s ease;
             z-index: 4;
-            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.3));
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
         }
 
-        /* Bottom/Side Flaps */
         .pocket {
             position: absolute;
             bottom: 0;
             left: 0;
             width: 0;
             height: 0;
-            border-left: 170px solid #4a0e1e;
-            border-right: 170px solid #4a0e1e;
-            border-bottom: 120px solid #5c1427;
-            border-radius: 0 0 8px 8px;
+            border-left: 160px solid #540c1f;
+            border-right: 160px solid #540c1f;
+            border-bottom: 115px solid #631026;
+            border-radius: 0 0 10px 10px;
             z-index: 3;
         }
 
-        /* Wax Seal Stamp */
         .wax-seal {
             position: absolute;
-            top: 125px;
+            top: 120px;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 55px;
-            height: 55px;
-            background: radial-gradient(circle at 30% 30%, #e6be67, #997827);
+            width: 52px;
+            height: 52px;
+            background: radial-gradient(circle at 30% 30%, #f3e0aa, #b8860b);
             border-radius: 50%;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5), inset 0 0 5px rgba(255,255,255,0.4);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
             display: flex;
             justify-content: center;
             align-items: center;
-            color: #3d030f;
-            font-family: 'Cinzel', serif;
-            font-weight: 700;
-            font-size: 20px;
+            font-size: 22px;
             z-index: 5;
-            transition: opacity 0.5s ease;
+            transition: opacity 0.4s ease;
         }
 
         .hint-text {
             position: absolute;
-            bottom: -45px;
+            bottom: -40px;
             width: 100%;
             text-align: center;
             color: #d4af37;
@@ -140,89 +133,83 @@
             letter-spacing: 2px;
             font-size: 12px;
             text-transform: uppercase;
-            opacity: 0.8;
             animation: pulse 2s infinite;
         }
 
         @keyframes pulse {
-            0%, 100% { opacity: 0.4; }
+            0%, 100% { opacity: 0.5; }
             50% { opacity: 1; }
         }
 
-        /* ---------------- PREMIUM CARD DESIGN ---------------- */
+        /* ---------------- BRIGHT & CLEAR CARD DESIGN (VERTICAL) ---------------- */
         .card {
             position: absolute;
-            width: 300px;
-            height: 200px;
-            background: #fff8f0;
-            border-radius: 6px;
+            width: 290px;
+            height: 190px;
+            background: #ffffff;
+            border-radius: 12px;
             top: 15px;
-            left: 20px;
+            left: 15px;
             z-index: 2;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
-                        width 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
-                        height 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-                        left 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-                        top 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-            display: flex;
-            overflow: hidden;
-            border: 1px solid #d4af37;
-        }
-
-        .card-left, .card-right {
-            flex: 1;
-            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+            border: 2px solid #d4af37;
+            opacity: 0;
+        }
+
+        .card-top {
+            width: 100%;
+            background: #fdfbf7;
+            padding: 20px 20px 10px 20px;
+            display: flex;
             justify-content: center;
             align-items: center;
-            opacity: 0;
-            transition: opacity 0.6s ease 0.6s;
+            border-bottom: 1px dashed #e0d0b0;
         }
 
-        .card-left {
-            background: #fcf8f2;
-            border-right: 1px dashed #d4af37;
-        }
-
-        .card-left img {
+        .card-top img {
             max-width: 100%;
-            max-height: 320px;
+            max-height: 280px;
             object-fit: contain;
-            border-radius: 8px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-            border: 3px solid #fff;
+            border-radius: 10px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+            border: 4px solid #ffffff;
         }
 
-        .card-right {
+        .card-bottom {
+            width: 100%;
+            padding: 20px 25px 25px 25px;
             background: #ffffff;
             text-align: center;
-            position: relative;
-            overflow-y: auto;
         }
 
-        .card-right h2 {
+        .card-bottom h2 {
             font-family: 'Great Vibes', cursive;
-            color: #7a132b;
-            font-size: 36px;
-            margin-bottom: 5px;
+            color: #8b1331;
+            font-size: 38px;
+            margin-bottom: 2px;
+            font-weight: normal;
         }
 
-        .card-right h4 {
+        .card-bottom h4 {
             font-family: 'Cinzel', serif;
-            color: #d4af37;
-            font-size: 11px;
+            color: #b8860b;
+            font-size: 12px;
             letter-spacing: 2px;
-            margin-bottom: 12px;
-            text-transform: uppercase;
+            margin-bottom: 18px;
+            font-weight: 700;
         }
 
-        .card-right p {
-            color: #4a4a4a;
-            font-size: 13px;
-            line-height: 1.6;
+        .card-bottom p {
+            color: #2b2b2b;
+            font-size: 14px;
+            line-height: 1.8;
             white-space: pre-line;
+            font-weight: 400;
         }
 
         /* ---------------- OPEN STATE ANIMATION ---------------- */
@@ -237,57 +224,25 @@
         }
 
         .stage.open .envelope-container {
-            transform: translateY(180px) scale(0.85);
-            opacity: 0.2;
+            transform: translateY(280px) scale(0.8);
+            opacity: 0.15;
             pointer-events: none;
         }
 
         .stage.open .card {
-            top: -80px;
-            left: -200px;
-            width: 740px;
-            height: 420px;
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100%;
+            max-width: 440px;
+            height: auto;
             z-index: 20;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-        }
-
-        .stage.open .card-left,
-        .stage.open .card-right {
             opacity: 1;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.6);
         }
 
         .stage.open .hint-text {
             display: none;
-        }
-
-        /* Responsive Layout Adjustments for Mobile Devices */
-        @media (max-width: 768px) {
-            .stage.open .card {
-                left: -140px;
-                top: -120px;
-                width: 320px;
-                height: 480px;
-                flex-direction: column;
-                overflow-y: auto;
-            }
-
-            .card-left {
-                border-right: none;
-                border-bottom: 1px dashed #d4af37;
-                padding: 12px;
-            }
-
-            .card-left img {
-                max-height: 190px;
-            }
-
-            .card-right {
-                padding: 15px;
-            }
-
-            .card-right h2 {
-                font-size: 28px;
-            }
         }
     </style>
 </head>
@@ -300,15 +255,13 @@
                 <div class="wax-seal">💖</div>
                 <div class="pocket"></div>
                 
-                <!-- Card Inside Envelope -->
+                <!-- Card Inside Envelope (Top Picture, Bottom Message) -->
                 <div class="card">
-                    <!-- Left Side: Picture -->
-                    <div class="card-left">
+                    <div class="card-top">
                         <img id="card-img" src="my-photo.jpg" alt="Shared Photo">
                     </div>
                     
-                    <!-- Right Side: Message -->
-                    <div class="card-right">
+                    <div class="card-bottom">
                         <h2 id="card-title"></h2>
                         <h4 id="card-subtitle"></h4>
                         <p id="card-message"></p>
@@ -323,8 +276,8 @@
     <script>
         const CONFIG = {
             title: "Happy Monthsary, My Love!",
-            subtitle: "To My Favorite Person ✨",
-            message: `Ang bilis ng panahon, pero bawat segundong kasama kita ay walang katumbas na kaligayahan. 
+            subtitle: "TO MY FAVORITE PERSON ✨",
+            message: `Ang bilis ng panahon, pero bawat segundong kasama kita ay walang katumbas na kaligayahan.
 
 Salamat sa pag-unawa, sa pagpapasensya, at sa walang sawang pagmamahal na ibinibigay mo araw-araw.
 
@@ -340,21 +293,6 @@ Ikaw ang aking pahinga at aking paboritong destinasyon. Looking forward sa maram
         function toggleEnvelope() {
             document.getElementById('mainStage').classList.toggle('open');
         }
-
-        function autoScaleStage() {
-            const stage = document.getElementById('mainStage');
-            const windowWidth = window.innerWidth;
-            if (windowWidth < 400) {
-                stage.style.transform = 'scale(0.85)';
-            } else if (windowWidth < 600) {
-                stage.style.transform = 'scale(0.95)';
-            } else {
-                stage.style.transform = 'scale(1)';
-            }
-        }
-
-        window.addEventListener('resize', autoScaleStage);
-        autoScaleStage();
     </script>
 
 </body>

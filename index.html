@@ -3,12 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Monthsary, My Love! 💖</title>
+    <title id="doc-title">A Special Greeting</title>
+
+    <!-- Google Fonts for Premium Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
     <!-- Social Media Link Preview Tags -->
-    <meta property="og:title" content="May Munting Liham Para Sa'yo 💌">
-    <meta property="og:description" content="I-click para buksan ang sobre at basahin ang mensahe.">
-    <meta property="og:image" content="https://img.icons8.com/emoji/480/love-letter-emoji.png">
+    <meta property="og:title" content="May Espesyal Na Liham Para Sa'yo 💌">
+    <meta property="og:description" content="I-tap ang sobre para buksan ang mensahe.">
 
     <style>
         * {
@@ -22,163 +26,318 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background-color: #ffeef2;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: radial-gradient(circle at center, #2c0b1e 0%, #0f030a 100%);
+            font-family: 'Montserrat', sans-serif;
             overflow: hidden;
+            perspective: 1500px;
         }
 
-        .container {
+        /* Outer Container */
+        .stage {
             position: relative;
+            width: 100%;
+            max-width: 900px;
+            height: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* ---------------- ENVELOPE DESIGN ---------------- */
+        .envelope-container {
+            position: relative;
+            width: 360px;
+            height: 240px;
+            background: #581225;
+            border-radius: 8px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.6), 0 0 20px rgba(212, 175, 55, 0.2);
             cursor: pointer;
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 10;
         }
 
-        /* Envelope Design */
-        .envelope-wrapper {
-            position: relative;
-            width: 320px;
-            height: 220px;
-            background-color: #ff758c;
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-        }
-
-        /* Envelope Flap Top */
-        .envelope-wrapper::before {
+        .envelope-container::after {
             content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 1px dashed rgba(212, 175, 55, 0.5);
+            border-radius: 4px;
+            pointer-events: none;
+        }
+
+        /* Top Flap */
+        .flap-top {
             position: absolute;
             top: 0;
             left: 0;
             width: 0;
             height: 0;
-            border-left: 160px solid transparent;
-            border-right: 160px solid transparent;
-            border-top: 120px solid #ff5277;
+            border-left: 180px solid transparent;
+            border-right: 180px solid transparent;
+            border-top: 135px solid #6e1830;
             transform-origin: top;
-            transition: transform 0.6s ease-in-out, z-index 0.6s;
-            z-index: 3;
+            transition: transform 0.8s ease-in-out, z-index 0.6s ease;
+            z-index: 4;
+            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.3));
         }
 
-        /* Envelope Pocket (Front Side) */
-        .envelope-pocket {
+        /* Bottom/Side Flaps */
+        .pocket {
             position: absolute;
             bottom: 0;
             left: 0;
             width: 0;
             height: 0;
-            border-left: 160px solid #ff758c;
-            border-right: 160px solid #ff758c;
-            border-bottom: 110px solid #ff6384;
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
-            z-index: 2;
+            border-left: 180px solid #4a0e1e;
+            border-right: 180px solid #4a0e1e;
+            border-bottom: 125px solid #5c1427;
+            border-radius: 0 0 8px 8px;
+            z-index: 3;
         }
 
-        /* Letter Inside */
-        .letter {
+        /* Wax Seal Stamp */
+        .wax-seal {
             position: absolute;
-            bottom: 10px;
-            left: 15px;
-            width: 290px;
-            height: 190px;
-            background: #ffffff;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            transition: transform 0.8s ease-in-out, height 0.8s ease-in-out;
-            z-index: 1;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            text-align: center;
-        }
-
-        .letter h3 {
-            color: #ff758c;
-            font-size: 20px;
-            margin-bottom: 10px;
-        }
-
-        .letter p {
-            font-size: 14px;
-            color: #555;
-            line-height: 1.5;
-            opacity: 0;
-            transition: opacity 0.5s ease 0.4s;
-        }
-
-        /* Heart Seal */
-        .heart-seal {
-            position: absolute;
-            top: 100px;
+            top: 130px;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 35px;
-            z-index: 4;
-            transition: opacity 0.4s ease;
-            animation: pulse 1.5s infinite;
+            width: 55px;
+            height: 55px;
+            background: radial-gradient(circle at 30% 30%, #e6be67, #997827);
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5), inset 0 0 5px rgba(255,255,255,0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #3d030f;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 20px;
+            z-index: 5;
+            transition: opacity 0.5s ease;
+        }
+
+        .hint-text {
+            position: absolute;
+            bottom: -45px;
+            width: 100%;
+            text-align: center;
+            color: #d4af37;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 2px;
+            font-size: 12px;
+            text-transform: uppercase;
+            opacity: 0.8;
+            animation: pulse 2s infinite;
         }
 
         @keyframes pulse {
-            0% { transform: translate(-50%, -50%) scale(1); }
-            50% { transform: translate(-50%, -50%) scale(1.15); }
-            100% { transform: translate(-50%, -50%) scale(1); }
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 1; }
         }
 
-        .hint {
+        /* ---------------- PREMIUM CARD DESIGN ---------------- */
+        .card {
             position: absolute;
-            bottom: -40px;
-            width: 100%;
+            width: 320px;
+            height: 210px;
+            background: #fff8f0;
+            border-radius: 6px;
+            top: 15px;
+            left: 20px;
+            z-index: 2;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+                        width 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+                        height 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+                        left 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+                        top 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            overflow: hidden;
+            border: 1px solid #d4af37;
+        }
+
+        .card-left, .card-right {
+            flex: 1;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.6s ease 0.6s;
+        }
+
+        .card-left {
+            background: #fcf8f2;
+            border-right: 1px dashed #d4af37;
+        }
+
+        .card-left img {
+            max-width: 100%;
+            max-height: 320px;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            border: 3px solid #fff;
+        }
+
+        .card-right {
+            background: #ffffff;
             text-align: center;
-            color: #d85072;
+            position: relative;
+            overflow-y: auto;
+        }
+
+        .card-right h2 {
+            font-family: 'Great Vibes', cursive;
+            color: #7a132b;
+            font-size: 38px;
+            margin-bottom: 5px;
+        }
+
+        .card-right h4 {
+            font-family: 'Cinzel', serif;
+            color: #d4af37;
+            font-size: 12px;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .card-right p {
+            color: #4a4a4a;
             font-size: 14px;
-            font-weight: bold;
+            line-height: 1.7;
+            white-space: pre-line;
         }
 
-        /* Open State Animations */
-        .container.open .envelope-wrapper::before {
+        /* ---------------- OPEN STATE ANIMATION ---------------- */
+        .stage.open .flap-top {
             transform: rotateX(180deg);
-            z-index: 0;
+            z-index: 1;
         }
 
-        .container.open .letter {
-            transform: translateY(-130px);
-            height: 300px;
-            z-index: 5;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        .stage.open .wax-seal {
+            opacity: 0;
+            pointer-events: none;
         }
 
-        .container.open .letter p {
+        .stage.open .envelope-container {
+            transform: translateY(180px) scale(0.9);
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .stage.open .card {
+            top: -80px;
+            left: -200px;
+            width: 760px;
+            height: 440px;
+            z-index: 20;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+
+        .stage.open .card-left,
+        .stage.open .card-right {
             opacity: 1;
         }
 
-        .container.open .heart-seal {
-            opacity: 0;
-            pointer-events: none;
+        .stage.open .hint-text {
+            display: none;
+        }
+
+        /* Responsive Layout for Mobile Devices */
+        @media (max-width: 800px) {
+            .stage.open .card {
+                left: -10px;
+                top: -120px;
+                width: 340px;
+                height: 520px;
+                flex-direction: column;
+                overflow-y: auto;
+            }
+
+            .card-left {
+                border-right: none;
+                border-bottom: 1px dashed #d4af37;
+                padding: 15px;
+            }
+
+            .card-left img {
+                max-height: 200px;
+            }
+
+            .card-right {
+                padding: 15px;
+            }
+
+            .card-right h2 {
+                font-size: 30px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="container" onclick="openEnvelope()">
-        <div class="envelope-wrapper">
-            <div class="heart-seal">💌</div>
-            <div class="letter">
-                <h3>To My Favorite Person, ✨</h3>
-                <p>
-                    Happy Monthsary, aking mahal! Ang bilis ng panahon, pero bawat segundong kasama kita ay walang katumbas na kaligayahan. Salamat sa pag-unawa, sa pagpapasensya, at sa walang sawang pagmamahal.<br><br>
-                    Ikaw ang aking pahinga at aking paboritong destinasyon. I love you so much! 💖
-                </p>
+    <div class="stage" id="mainStage" onclick="toggleEnvelope()">
+        <div class="envelope-container">
+            <div class="flap-top"></div>
+            <div class="wax-seal">💖</div>
+            <div class="pocket"></div>
+            
+            <!-- Card Inside Envelope -->
+            <div class="card">
+                <!-- Left Side: Picture -->
+                <div class="card-left">
+                    <img id="card-img" src="" alt="Shared Photo">
+                </div>
+                
+                <!-- Right Side: Message -->
+                <div class="card-right">
+                    <h2 id="card-title"></h2>
+                    <h4 id="card-subtitle"></h4>
+                    <p id="card-message"></p>
+                </div>
             </div>
-            <div class="envelope-pocket"></div>
+
+            <div class="hint-text">(I-tap para buksan ang sobre)</div>
         </div>
-        <div class="hint">(I-tap ang sobre para buksan)</div>
     </div>
 
     <script>
-        function openEnvelope() {
-            document.querySelector('.container').classList.toggle('open');
+        // ========================================================
+        // ⚙️ BAGUHIN MO DITO ANG LARAWAN AT MENSAHE (EASY ENV):
+        // ========================================================
+        const CONFIG = {
+            // Palitan ang URL ng picture dito (pwede galing sa postimage.org, imgur, o local file):
+            imageURL: "249E2971-96EE-4621-AA4A-6A9C807338C9_1_105_c.jpg",
+            
+            // Title & Subtitle sa kanang bahagi ng Card:
+            title: "Happy Monthsary, My Love!",
+            subtitle: "To My Favorite Person ✨",
+            
+            // Ang Mensahe sa kanang bahagi:
+            message: `Ang bilis ng panahon, pero bawat segundong kasama kita ay walang katumbas na kaligayahan. 
+
+Salamat sa pag-unawa, sa pagpapasensya, at sa walang sawang pagmamahal na ibinibigay mo araw-araw.
+
+Ikaw ang aking pahinga at aking paboritong destinasyon. Looking forward sa marami pang buwan at alaala kasama ka. I love you so much! 💖`
+        };
+
+        // Automatic Data Binding sa HTML Elements
+        document.getElementById('card-img').src = CONFIG.imageURL;
+        document.getElementById('card-title').textContent = CONFIG.title;
+        document.getElementById('card-subtitle').textContent = CONFIG.subtitle;
+        document.getElementById('card-message').textContent = CONFIG.message;
+        document.getElementById('doc-title').textContent = CONFIG.title;
+
+        // Toggle Animation Function
+        function toggleEnvelope() {
+            document.getElementById('mainStage').classList.toggle('open');
         }
     </script>
 

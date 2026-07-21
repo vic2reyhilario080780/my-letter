@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Monthsary, My Love! 💖</title>
+
+    <!-- Social Media Link Preview Tags -->
+    <meta property="og:title" content="May Munting Liham Para Sa'yo 💌">
+    <meta property="og:description" content="I-click para buksan ang sobre at basahin ang mensahe.">
+    <meta property="og:image" content="https://img.icons8.com/emoji/480/love-letter-emoji.png">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #ffeef2;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+        }
+
+        .container {
+            position: relative;
+            cursor: pointer;
+        }
+
+        /* Envelope Design */
+        .envelope-wrapper {
+            position: relative;
+            width: 320px;
+            height: 220px;
+            background-color: #ff758c;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        /* Envelope Flap Top */
+        .envelope-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 160px solid transparent;
+            border-right: 160px solid transparent;
+            border-top: 120px solid #ff5277;
+            transform-origin: top;
+            transition: transform 0.6s ease-in-out, z-index 0.6s;
+            z-index: 3;
+        }
+
+        /* Envelope Pocket (Front Side) */
+        .envelope-pocket {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 160px solid #ff758c;
+            border-right: 160px solid #ff758c;
+            border-bottom: 110px solid #ff6384;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            z-index: 2;
+        }
+
+        /* Letter Inside */
+        .letter {
+            position: absolute;
+            bottom: 10px;
+            left: 15px;
+            width: 290px;
+            height: 190px;
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            transition: transform 0.8s ease-in-out, height 0.8s ease-in-out;
+            z-index: 1;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .letter h3 {
+            color: #ff758c;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .letter p {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.5;
+            opacity: 0;
+            transition: opacity 0.5s ease 0.4s;
+        }
+
+        /* Heart Seal */
+        .heart-seal {
+            position: absolute;
+            top: 100px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 35px;
+            z-index: 4;
+            transition: opacity 0.4s ease;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.15); }
+            100% { transform: translate(-50%, -50%) scale(1); }
+        }
+
+        .hint {
+            position: absolute;
+            bottom: -40px;
+            width: 100%;
+            text-align: center;
+            color: #d85072;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        /* Open State Animations */
+        .container.open .envelope-wrapper::before {
+            transform: rotateX(180deg);
+            z-index: 0;
+        }
+
+        .container.open .letter {
+            transform: translateY(-130px);
+            height: 300px;
+            z-index: 5;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .container.open .letter p {
+            opacity: 1;
+        }
+
+        .container.open .heart-seal {
+            opacity: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" onclick="openEnvelope()">
+        <div class="envelope-wrapper">
+            <div class="heart-seal">💌</div>
+            <div class="letter">
+                <h3>To My Favorite Person, ✨</h3>
+                <p>
+                    Happy Monthsary, aking mahal! Ang bilis ng panahon, pero bawat segundong kasama kita ay walang katumbas na kaligayahan. Salamat sa pag-unawa, sa pagpapasensya, at sa walang sawang pagmamahal.<br><br>
+                    Ikaw ang aking pahinga at aking paboritong destinasyon. I love you so much! 💖
+                </p>
+            </div>
+            <div class="envelope-pocket"></div>
+        </div>
+        <div class="hint">(I-tap ang sobre para buksan)</div>
+    </div>
+
+    <script>
+        function openEnvelope() {
+            document.querySelector('.container').classList.toggle('open');
+        }
+    </script>
+
+</body>
+</html>
